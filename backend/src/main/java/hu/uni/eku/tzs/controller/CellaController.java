@@ -34,11 +34,11 @@ public class CellaController {
             @RequestBody
             CellaRecordRequestDto request
     ){
-        log.info("Recording of Cella ({},{})",request.getCellaId(),request.getAllapot());
+        log.info("Recording of Cella ({},{})",request.getCellaId(),request.isAllapot());
         try {
-            service.record(new Cella(request.getCellaId(),request.getAllapot()));
+            service.record(new Cella(request.getCellaId(),request.isAllapot()));
         }catch (CellaAlreadyExistsException e){
-            log.info("Cella ({},{}) is already exists! Message: {}", request.getCellaId(),request.getAllapot(), e.getMessage());
+            log.info("Cella ({},{}) is already exists! Message: {}", request.getCellaId(),request.isAllapot(), e.getMessage());
             throw new ResponseStatusException(
                     HttpStatus.CONFLICT,
                     e.getMessage()
@@ -53,14 +53,14 @@ public class CellaController {
         return  service.readAll().stream().map(model ->
                 CellaDto.builder()
                         .cellaId(model.getCellaId())
-                        .allapot(model.getAllapot())
+                        .allapot(model.isAllapot())
                         .build()
         ).collect(Collectors.toList());
     }
 
     @DeleteMapping(value = {"/{cellaId}"})
     @ApiOperation(value = "Delete a Cella")
-    public void delete(@PathVariable UUID cellaId)
+    public void delete(@PathVariable int cellaId)
     {
         try {
             service.delete(cellaId);

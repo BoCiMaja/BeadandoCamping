@@ -30,7 +30,7 @@ public class CellaDaoImpl implements CellaDao {
     public void update(int cellaId, Cella updated) {
         hu.uni.eku.tzs.dao.entity.Cella temp = repository.findByCellaId(cellaId);
         temp.setCellaId(updated.getCellaId());
-        temp.setAllapot(updated.getAllapot());
+        temp.setAllapot(updated.isAllapot());
         repository.save(temp);
     }
 
@@ -46,14 +46,14 @@ public class CellaDaoImpl implements CellaDao {
         private static Cella entity2model(hu.uni.eku.tzs.dao.entity.Cella entity){
             return new Cella(
                     entity.getCellaId(),
-                    entity.getAllapot()
+                    entity.isAllapot()
             );
         }
 
         private static hu.uni.eku.tzs.dao.entity.Cella model2entity(Cella model){
             return hu.uni.eku.tzs.dao.entity.Cella.builder()
                     .cellaId(model.getCellaId())
-                    .allapot(model.getAllapot())
+                    .allapot(model.isAllapot())
                     .build();
         }
 
