@@ -8,5 +8,5 @@ import java.util.UUID;
 
 public interface CellaRepository extends CrudRepository<Cella, Integer>
 {
-    Cella findByCellaId (UUID cellaId);
+    Cella findByCellaId (int cellaId);
 }

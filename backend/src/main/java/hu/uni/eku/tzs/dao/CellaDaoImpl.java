@@ -20,21 +20,22 @@ public class CellaDaoImpl implements CellaDao {
     }
 
     @Override
-    public Collection<Cella> fetchAll() {
+    public Collection<Cella> readAll() {
         return StreamSupport.stream(repository.findAll().spliterator(),false)
                 .map(entity -> CellaEntityModelConverter.entity2model(entity))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public void update(UUID cellaId, Cella updated) {
+    public void update(int cellaId, Cella updated) {
         hu.uni.eku.tzs.dao.entity.Cella temp = repository.findByCellaId(cellaId);
         temp.setCellaId(updated.getCellaId());
+        temp.setAllapot(updated.getAllapot());
         repository.save(temp);
     }
 
     @Override
-    public void delete(UUID cellaId) {
+    public void delete(int cellaId) {
         hu.uni.eku.tzs.dao.entity.Cella temp = repository.findByCellaId(cellaId);
         if(temp != null)
             repository.delete(temp);
@@ -45,14 +46,14 @@ public class CellaDaoImpl implements CellaDao {
         private static Cella entity2model(hu.uni.eku.tzs.dao.entity.Cella entity){
             return new Cella(
                     entity.getCellaId(),
-                    entity.isAllapot()
+                    entity.getAllapot()
             );
         }
 
         private static hu.uni.eku.tzs.dao.entity.Cella model2entity(Cella model){
             return hu.uni.eku.tzs.dao.entity.Cella.builder()
                     .cellaId(model.getCellaId())
-                    .allapot(model.isAllapot())
+                    .allapot(model.getAllapot())
                     .build();
         }
 

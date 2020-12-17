@@ -17,8 +17,9 @@ public class Cella {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Type(type="uuid-char")
-    private UUID cellaId;
+    private int Id;
+    @Column
+    private int cellaId;
     @Column
     private boolean allapot;
 }

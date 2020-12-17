@@ -9,9 +9,9 @@ public interface CellaDao {
 
     void create(Cella cella);
 
-    Collection<Cella> fetchAll();
+    Collection<Cella> readAll();
 
-    void update(UUID Cella, Cella updated);
+    void update(int celladId, Cella updated);
 
-    void delete(UUID Cella);
+    void delete(int cellaId);
 }

@@ -15,32 +15,34 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Service
 public class CellaServiceImpl implements CellaService {
+
     private final CellaDao dao;
 
     @Override
-    public void create(Cella cella)throws CellaAlreadyExistsException {
-        final boolean alreadyExists = dao.fetchAll()
+    public void record(Cella cella)throws CellaAlreadyExistsException {
+        final boolean isAlreadyRecorded = dao.readAll()
                 .stream()
-                .anyMatch(cell -> cell.getCellaId() == cella.getCellaId());
-        if (alreadyExists){
-            throw new CellaAlreadyExistsException(String.format("Cella (%s) már van!",cella.toString()));
+                .anyMatch(cell ->
+                        cell.getCellaId() == cella.getCellaId());
+        if (isAlreadyRecorded){
+            throw new CellaAlreadyExistsException(String.format("Cella (%s) already exists!", cella.toString()));
         }
         dao.create(cella);
 
     }
 
     @Override
-    public  Collection<Cella>fetchAll(){
-        return dao.fetchAll();
+    public  Collection<Cella>readAll(){
+        return dao.readAll();
     }
 
-    @Override
+    /*@Override
     public void update(UUID cellaId, Cella updatedCella)throws CellaNotFoundException {
         dao.update(cellaId, updatedCella);
-    }
+    }*/
 
     @Override
-    public void delete(UUID cellaId)throws CellaNotFoundException{
+    public void delete(int cellaId)throws CellaNotFoundException{
         dao.delete(cellaId);
     }
 }

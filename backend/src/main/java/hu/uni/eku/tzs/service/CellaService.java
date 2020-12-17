@@ -9,11 +9,11 @@ import java.util.UUID;
 
 public interface CellaService {
 
-    void create(Cella cella)throws CellaAlreadyExistsException;
+    void record(Cella cella)throws CellaAlreadyExistsException;
 
-    Collection<Cella>fetchAll();
+    Collection<Cella>readAll();
 
-    void update(UUID cellaId, Cella updatedCella)throws CellaNotFoundException;
+    /*void update(int cellaId, Cella updatedCella)throws CellaNotFoundException;*/
 
-    void  delete(UUID cellaId)throws CellaNotFoundException;
+    void  delete(int cellaId)throws CellaNotFoundException;
 }

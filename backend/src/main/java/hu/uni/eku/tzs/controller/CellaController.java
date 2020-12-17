@@ -28,41 +28,42 @@ import java.util.stream.Collectors;
 public class CellaController {
     private final CellaService service;
 
+    @PostMapping(value = {"/record"})
+    @ApiOperation(value = "Record")
+    public void record(
+            @RequestBody
+            CellaRecordRequestDto request
+    ){
+        log.info("Recording of Cella ({},{})",request.getCellaId(),request.getAllapot());
+        try {
+            service.record(new Cella(request.getCellaId(),request.getAllapot()));
+        }catch (CellaAlreadyExistsException e){
+            log.info("Cella ({},{}) is already exists! Message: {}", request.getCellaId(),request.getAllapot(), e.getMessage());
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT,
+                    e.getMessage()
+            );
+        }
+    }
+
     @GetMapping(value = {"/"},produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    @ApiOperation(value = "Keresd meg a cellat")
-    public Collection<CellaDto>fetchAll(){
-        return  service.fetchAll().stream().map(cella -> CellaDto.builder()
-                .cellaId(cella.getCellaId())
-                .allapot(cella.isAllapot())
-                .build()
+    @ApiOperation(value = "Query Cella")
+    public Collection<CellaDto> query(){
+        return  service.readAll().stream().map(model ->
+                CellaDto.builder()
+                        .cellaId(model.getCellaId())
+                        .allapot(model.getAllapot())
+                        .build()
         ).collect(Collectors.toList());
     }
-    @PostMapping(value = {"/create"})
-    @ApiOperation(value = "cella létrehozása")
-    public void create(@RequestBody CellaRecordRequestDto request){
-        try {
-            service.create(new Cella(request.getCellaId(),request.isAllapot()));
-        }catch (CellaAlreadyExistsException e){
-            throw new ResponseStatusException(HttpStatus.CONFLICT, e.getMessage());
-        }
-    }
-    @PutMapping(value = {"/{CellaId}"})
-    @ApiOperation(value = "Cella frissítése")
-    public  void update(@PathVariable UUID CellaId, @RequestBody CellaRecordRequestDto request )
+
+    @DeleteMapping(value = {"/{cellaId}"})
+    @ApiOperation(value = "Delete a Cella")
+    public void delete(@PathVariable UUID cellaId)
     {
         try {
-            service.update(CellaId, new Cella(request.getCellaId(),request.isAllapot()));
-        }catch (CellaNotFoundException e){
-            throw new ResponseStatusException(HttpStatus.CONFLICT, e.getMessage());
-        }
-    }
-    @DeleteMapping(value = {"/{CellaId}"})
-    @ApiOperation(value = "Cella törlése")
-    public void delete(@PathVariable UUID CellaId)
-    {
-        try {
-            service.delete(CellaId);
+            service.delete(cellaId);
         }catch (CellaNotFoundException e){
             throw  new ResponseStatusException(HttpStatus.CONFLICT, e.getMessage());
         }
