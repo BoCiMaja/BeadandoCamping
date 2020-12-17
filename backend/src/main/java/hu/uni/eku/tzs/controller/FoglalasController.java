@@ -30,33 +30,38 @@ public class FoglalasController {
 
     @GetMapping(value = {"/"},produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    @ApiOperation(value = "Keresd meg a foglalast")
-    public Collection<FoglalasDto>fetchAll(){
-            return  service.fetchAll().stream().map(foglalas -> FoglalasDto.builder()
-                .Foglalas_Id(foglalas.getFoglalas_Id())
-                .cellaSzam(foglalas.getCellaSzam())
-                .erkezes(foglalas.getErkezes())
-                .tavozas(foglalas.getTavozas())
-                .vezeteknev(foglalas.getVezeteknev())
-                .keresztnev(foglalas.getKeresztnev())
-                .telefonszam(foglalas.getTelefonszam())
-                .tipus(foglalas.getTipus())
-                .aram(foglalas.isAram())
-                .build()
-        ).collect(Collectors.toList());
+    @ApiOperation(value = "Query Foglalas")
+    public Collection<FoglalasDto> query(){
+            return  service.readAll().stream().map(foglalas ->
+                    FoglalasDto.builder()
+                            .Foglalas_Id(foglalas.getFoglalas_Id())
+                            .cellaSzam(foglalas.getCellaSzam())
+                            .erkezes(foglalas.getErkezes())
+                            .tavozas(foglalas.getTavozas())
+                            .vezeteknev(foglalas.getVezeteknev())
+                            .keresztnev(foglalas.getKeresztnev())
+                            .telefonszam(foglalas.getTelefonszam())
+                            .tipus(foglalas.getTipus())
+                            .aram(foglalas.isAram())
+                            .build()
+            ).collect(Collectors.toList());
     }
-    @PostMapping(value = {"/create"})
-    @ApiOperation(value = "foglalás létrehozása")
-    public  void create(@RequestBody FoglalasRecordRequestDto request){
+    @PostMapping(value = {"/record"})
+    @ApiOperation(value = "Record")
+    public  void record(
+            @RequestBody
+                    FoglalasRecordRequestDto request
+    ){
         try {
-            service.create(new Foglalas(request.getFoglalas_Id(),request.getCellaSzam(),request.getErkezes(),
+            service.record(new Foglalas(request.getFoglalas_Id(),request.getCellaSzam(),request.getErkezes(),
                     request.getTavozas(),request.getVezeteknev(),request.getKeresztnev(), request.getTelefonszam(),
                     request.getTipus(), request.isAram()));
         }catch (FoglalasAlreadyExistsExeptions e){
             throw new ResponseStatusException(HttpStatus.CONFLICT, e.getMessage());
         }
     }
-    @PutMapping(value = {"/{Foglalas_Id}"})
+
+    /*@PutMapping(value = {"/{Foglalas_Id}"})
     @ApiOperation(value = "Foglalás frissítése")
     public  void update(@PathVariable UUID Foglalas_Id,@RequestBody FoglalasRecordRequestDto request )
     {
@@ -67,10 +72,11 @@ public class FoglalasController {
         }catch (FoglalasNotFoundException e){
             throw new ResponseStatusException(HttpStatus.CONFLICT, e.getMessage());
         }
-    }
+    }*/
+
     @DeleteMapping(value = {"/{Foglalas_Id}"})
-    @ApiOperation(value = "Foglalás törlése")
-    public void delete(@PathVariable UUID Foglalas_Id)
+    @ApiOperation(value = "Delete a Foglalas")
+    public void delete(@PathVariable int Foglalas_Id)
     {
         try {
             service.delete(Foglalas_Id);

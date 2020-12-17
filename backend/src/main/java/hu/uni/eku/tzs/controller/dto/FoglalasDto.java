@@ -9,7 +9,7 @@ import java.util.UUID;
 @Data
 @Builder
 public class FoglalasDto {
-    private UUID Foglalas_Id;
+    private int Foglalas_Id;
     private int cellaSzam;
     private Date erkezes;
     private Date tavozas;

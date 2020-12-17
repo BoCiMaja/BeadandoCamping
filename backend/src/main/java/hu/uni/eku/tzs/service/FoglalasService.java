@@ -10,11 +10,11 @@ import java.util.UUID;
 
 public interface FoglalasService {
 
-    void create(Foglalas foglalas)throws FoglalasAlreadyExistsExeptions;
+    void record(Foglalas foglalas)throws FoglalasAlreadyExistsExeptions;
 
-    Collection<Foglalas>fetchAll();
+    Collection<Foglalas>readAll();
 
-    void update(UUID Foglalas_Id, Foglalas updatedFoglalas)throws FoglalasNotFoundException;
+    void update(int Foglalas_Id, Foglalas updatedFoglalas)throws FoglalasNotFoundException;
 
-    void  delete(UUID Foglalas_Id)throws FoglalasNotFoundException;
+    void  delete(int Foglalas_Id)throws FoglalasNotFoundException;
 }

@@ -21,21 +21,29 @@ public class FoglalasDaoImpl implements FoglalasDao {
     }
 
     @Override
-    public Collection<Foglalas> fetchAll() {
+    public Collection<Foglalas> readAll() {
         return StreamSupport.stream(repository.findAll().spliterator(),false)
                 .map(entity -> FoglalasEntityModelConverter.entity2model(entity))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public void update(UUID Foglalas_Id, Foglalas updated) {
+    public void update(int Foglalas_Id, Foglalas updated) {
         hu.uni.eku.tzs.dao.entity.Foglalas temp = repository.findByFoglalas_Id(Foglalas_Id);
         temp.setFoglalas_Id(updated.getFoglalas_Id());
+        temp.setCellaSzam(updated.getCellaSzam());
+        temp.setErkezes(updated.getErkezes());
+        temp.setTavozas(updated.getTavozas());
+        temp.setVezeteknev(updated.getVezeteknev());
+        temp.setKeresztnev(updated.getKeresztnev());
+        temp.setTelefonszam(updated.getTelefonszam());
+        temp.setTipus(updated.getTipus());
+        temp.setAram(updated.isAram());
         repository.save(temp);
     }
 
     @Override
-    public void delete(UUID Foglalas_Id) {
+    public void delete(int Foglalas_Id) {
         hu.uni.eku.tzs.dao.entity.Foglalas temp = repository.findByFoglalas_Id(Foglalas_Id);
         if(temp != null)
             repository.delete(temp);

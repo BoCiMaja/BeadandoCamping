@@ -6,5 +6,5 @@ import java.util.UUID;
 
 public interface FoglalasRepository extends CrudRepository<Foglalas, Integer>
 {
-    Foglalas findByFoglalas_Id (UUID Foglalas_Id);
+    Foglalas findByFoglalas_Id (int Foglalas_Id);
 }

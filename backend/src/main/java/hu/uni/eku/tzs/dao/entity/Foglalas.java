@@ -19,8 +19,9 @@ public class Foglalas {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Type(type="uuid-char")
-    private UUID Foglalas_Id;
+    private int Id;
+    @Column
+    private int Foglalas_Id;
     @Column
     private int cellaSzam;
     @Column

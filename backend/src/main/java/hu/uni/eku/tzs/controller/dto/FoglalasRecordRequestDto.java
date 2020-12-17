@@ -14,7 +14,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class FoglalasRecordRequestDto {
 
-    private UUID Foglalas_Id;
+    private int Foglalas_Id;
     private int cellaSzam;
     private Date erkezes;
     private Date tavozas;
