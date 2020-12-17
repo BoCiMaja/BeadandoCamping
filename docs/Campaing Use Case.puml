@@ -1,0 +1,11 @@
+@startuml
+vendég -> (hely kérvényezése a recepcióstól)
+(hely kérvényezése a recepcióstól) ..> (kérhet plusz költséges dolgokat)
+(hely kérvényezése a recepcióstól) -> :recepciós:
+(kérhet plusz költséges dolgokat)  .> :recepciós:
+:recepciós: --> (lekérdezheti az üres helyeket \n adott intervallumon belül)
+
+:recepciós: --> (kiadhat helyet)
+:recepciós: --> (foglalhat le helyet )
+:recepciós: -->(számlát kér a rendszertöl\n a vendég távozáskor)
+@enduml
