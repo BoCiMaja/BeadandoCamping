@@ -19,6 +19,8 @@ public class Bill {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int Id;
     @Column
+    private int billId;
+    @Column
     private LocalDate arrive;
     @Column
     private LocalDate leave;

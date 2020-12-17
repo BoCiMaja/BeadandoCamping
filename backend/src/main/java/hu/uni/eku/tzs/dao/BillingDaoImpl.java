@@ -27,8 +27,9 @@ public class BillingDaoImpl implements BillingDao {
     }
 
     @Override
-    public void update(int bill_id, Bill update) {
-        hu.uni.eku.tzs.dao.entity.Bill temp = repository.findByBill_id(bill_id);
+    public void update(int billId, Bill update) {
+        hu.uni.eku.tzs.dao.entity.Bill temp = repository.findByBillId(billId);
+        temp.setBillId(update.getBillId());
         temp.setArrive(update.getArrive());
         temp.setLeave(update.getLeave());
         temp.setFirstName(update.getFirstName());
@@ -39,15 +40,17 @@ public class BillingDaoImpl implements BillingDao {
     }
 
     @Override
-    public void delete(int bill_id) {
-        hu.uni.eku.tzs.dao.entity.Bill temp = repository.findByBill_id(bill_id);
+    public void delete(int billId) {
+        hu.uni.eku.tzs.dao.entity.Bill temp = repository.findByBillId(billId);
         if (temp != null)
             repository.delete(temp);
     }
 
     private static class BillEntityModelConverter {
         private static Bill entity2model(hu.uni.eku.tzs.dao.entity.Bill entity) {
-            return new Bill(entity.getArrive(),
+            return new Bill(
+                    entity.getBillId(),
+                    entity.getArrive(),
                     entity.getLeave(),
                     entity.getFirstName(),
                     entity.getSurName(),
@@ -56,7 +59,9 @@ public class BillingDaoImpl implements BillingDao {
         }
 
         private static hu.uni.eku.tzs.dao.entity.Bill model2entity(Bill model) {
-            return hu.uni.eku.tzs.dao.entity.Bill.builder().arrive(model.getArrive())
+            return hu.uni.eku.tzs.dao.entity.Bill.builder()
+                    .billId(model.getBillId())
+                    .arrive(model.getArrive())
                     .leave(model.getLeave())
                     .firstName(model.getFirstName())
                     .surName(model.getSurName())

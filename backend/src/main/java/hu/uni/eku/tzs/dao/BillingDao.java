@@ -8,7 +8,7 @@ public interface BillingDao {
 
     Collection<Bill> readAll();
 
-    void update(int bill_id, Bill updated);
+    void update(int billId, Bill updated);
 
-    void delete(int bill_id);
+    void delete(int billId);
 }

@@ -5,6 +5,7 @@ import hu.uni.eku.tzs.controller.dto.BillRecordRequestDto;
 import hu.uni.eku.tzs.model.Bill;
 import hu.uni.eku.tzs.service.BillingService;
 import hu.uni.eku.tzs.service.exceptions.BillAlreadyExistsException;
+import hu.uni.eku.tzs.service.exceptions.BillNotFoundException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -18,9 +19,9 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(value = "/Bill")
+@RequestMapping(value = "/bill")
 @RequiredArgsConstructor
-@Api(tags = "Bills")
+@Api(tags = "Bill")
 @Slf4j
 public class BillingController {
     private final BillingService service;
@@ -31,15 +32,20 @@ public class BillingController {
             @RequestBody
                     BillRecordRequestDto request
     ){
+        log.info("Recording of Bill ({},{},{},{},{},{},{})", request.getBillId(), request.getArrive(), request.getLeave(),
+                request.getFirstName(), request.getSurName(), request.getNumberOfDays(), request.getTotalAmount());
         try {
-            service.record(new Bill(request.getArrive(),
+            service.record(new Bill(
+                    request.getBillId(),
+                    request.getArrive(),
                     request.getLeave(),
                     request.getFirstName(),
                     request.getSurName(),
                     request.getNumberOfDays(),
                     request.getTotalAmount()));
         } catch (BillAlreadyExistsException e) {
-            log.info("Bill is already exists! Message: {}", e.getMessage());
+            log.info("Bill ({},{},{},{},{},{},{}) is already exists! Message: {}", request.getBillId(), request.getArrive(), request.getLeave(),
+                    request.getFirstName(), request.getSurName(), request.getNumberOfDays(), request.getTotalAmount(), e.getMessage());
             throw new ResponseStatusException(
                     HttpStatus.CONFLICT,
                     e.getMessage()
@@ -49,12 +55,11 @@ public class BillingController {
 
     @GetMapping(value = {"/"}, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    @ApiOperation(value = "Query Billing Information")
-    public Collection<BillDto> query()
-
-    {
+    @ApiOperation(value = "Query Bill")
+    public Collection<BillDto> query() {
         return service.readAll().stream().map(model ->
                 BillDto.builder()
+                        .billId(model.getBillId())
                         .arrive(model.getArrive())
                         .leave(model.getLeave())
                         .firstName(model.getFirstName())
@@ -63,5 +68,15 @@ public class BillingController {
                         .totalAmount(model.getTotalAmount())
                         .build()
         ).collect(Collectors.toList());
+    }
+
+    @DeleteMapping(value = {"/{billId}"})
+    @ApiOperation(value = "Delete a Guest")
+    public void delete(@PathVariable int billId) {
+        try {
+            service.delete(billId);
+        } catch (BillNotFoundException e) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, e.getMessage());
+        }
     }
 }

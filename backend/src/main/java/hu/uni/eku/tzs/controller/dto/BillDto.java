@@ -9,6 +9,7 @@ import java.util.Date;
 @Data
 @Builder
 public class BillDto {
+    private int billId;
     private LocalDate arrive;
     private LocalDate leave;
     private String firstName;
