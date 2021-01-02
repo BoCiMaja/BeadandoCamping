@@ -10,7 +10,7 @@
 
   <name>backend</name>
   <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>https://github.com/BoCiMaja/BeadandoCamping</url>
 
   <properties>
     <github.global.server>github</github.global.server>
@@ -32,7 +32,7 @@
     <repository>
       <id>github</id>
       <name>GitHub OWNER Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/ZsoltToth/project-templates-spring-react</url>
+      <url>https://maven.pkg.github.com/BoCiMaja/BeadandoCamping</url>
     </repository>
   </distributionManagement>
 
