@@ -1,22 +1,20 @@
 import axios from 'axios';
 import dispatcher from '../dispatcher/Dispatcher';
-import * as actionConstants from '../dispatcher/FoglalasActionConstants'
+import * as actionConstants from '../dispatcher/BillingActionConstants'
 
-export const recordFoglalas = ({foglalasId, cellaSzam, erkezes, tavozas, vezeteknev, keresztnev, telefonszam, tipus, aram }) =>{
-    axios.post('/foglalas/record',
+export const recordBill = ({ billId, arrive, leave, firstName, surName, numberOfDays, totalAmount}) =>{
+    axios.post('/Bill/record',
         {
-            foglalasId : foglalasId,
-            cellaSzam : cellaSzam,
-            erkezes : erkezes,
-            tavozas : tavozas,
-            vezeteknev : vezeteknev,
-            keresztnev : keresztnev,
-            telefonszam : telefonszam,
-            tipus : tipus,
-            aram : aram
+            billId: billId,
+            arrive : arrive,
+            leave : leave,
+            firstName : firstName,
+            surName : surName,
+            numberOfDays : numberOfDays,
+            totalAmount : totalAmount
         })
         .then(() => {
-            fetchFoglalasok();
+            fetchBills();
             dispatcher.dispatch({action : actionConstants.clearError});
         })
         .catch((err) => {
@@ -24,13 +22,13 @@ export const recordFoglalas = ({foglalasId, cellaSzam, erkezes, tavozas, vezetek
                 action : actionConstants.showError,
                 payload: `${err.response.status}-${err.response.statusText}: ${err.response.data.message}`
             });
-            fetchFoglalasok();
+            fetchBills();
         });
 }
 
-export const fetchFoglalasok = () =>{
+export const fetchBills = () =>{
 
-    axios.get('/foglalasok/').then((resp)=>{
+    axios.get('/Bill/').then((resp)=>{
         dispatcher.dispatch({
             action : actionConstants.refresh,
             payload: resp.data
@@ -38,8 +36,8 @@ export const fetchFoglalasok = () =>{
     })
 }
 
-export const deleteFoglalas = ({foglalasId}) =>{
-    axios.delete(`/guest/${foglalasId}`)
+export const deleteBill = ({billId}) =>{
+    axios.delete(`/Bill/${billId}`)
         .then(() => {
 
             dispatcher.dispatch({action : actionConstants.clearError});

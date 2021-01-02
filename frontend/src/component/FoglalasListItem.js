@@ -1,8 +1,8 @@
 import React from 'react';
 
-function FoglalasListItem({Foglalas_Id, cellaszam, erkezes, tavozas, vezeteknev, keresztnev, telefonszam, tipus, aram }){
+function FoglalasListItem({foglalasId, cellaszam, erkezes, tavozas, vezeteknev, keresztnev, telefonszam, tipus, aram }){
     return (
-        <span>({Foglalas_Id}, {cellaszam}, {erkezes}, {tavozas}, {vezeteknev}, {keresztnev}, {telefonszam}, {tipus}, {aram})</span>
+        <span>({foglalasId}, {cellaszam}, {erkezes}, {tavozas}, {vezeteknev}, {keresztnev}, {telefonszam}, {tipus}, {aram})</span>
     );
 }
 

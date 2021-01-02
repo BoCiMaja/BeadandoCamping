@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+body {
+    margin: 0px;
+    font-size: 30px;
+    font-family: 'Comic Sans MS', sans-serif;
+    background: darkmagenta;
+    overflow: hidden;
+}
+video{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+
+}
+h1{
+    padding: 10px;
+}
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+#content{
+    position: fixed;
+    text-align: center;
+    width: 90%;
+    height: auto;
+    right:5.4%;
+    margin-top:200px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    opacity: 80%;
+}
+#firstdiv{
+    float: left;
+    width: 46%;
+    margin:20px;
+}
+#messagediv{
+
+    height:220px;
+    width:75%;
+    float:right;
+    background-color:#f1f1f1;
+    opacity:80%;
+}
+#refresh{
+    float: right;
+    position: fixed;
+    right: 6%;
+    top: 21%;
+}
+.header {
+    position: fixed;
+    color:#f1f1f1;
+    padding: 10px;
+    width: 96%;
+    right: 2%;
+    top: 5px;
+    border-radius: 24px;
+}
+
+.header a {
+    float: left;
+    color: #f1f1f1;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+.header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.header a:hover {
+    background-color: darkmagenta;
+    color: black;
+}
+
+.header-right {
+    float: right;
+}
+
+button {
+    border: none;
+    color: black;
+    padding: 5px;
+    text-align: center;
+    margin: 10px;
+    cursor: pointer;
+    background: lightpink;
+    border-radius: 24px;
+}
+
+footer{
+    width: 96%;
+    right: 2%;
+    padding-top: 10px;
+    position: fixed;
+    bottom: 5px;
+    text-align: center;
+    border-radius: 24px;
+    color:#f1f1f1;
+}
+
+input[type=number] {
+    border-radius: 24px;
+    background: lightpink;
+}
+input[type=text] {
+    border-radius: 24px;
+    background: lightpink;
+}
+input[type=datetime-local] {
+    border-radius: 24px;
+    background: lightpink;
+}
+
+.round{
+    border-radius: 24px;
+}

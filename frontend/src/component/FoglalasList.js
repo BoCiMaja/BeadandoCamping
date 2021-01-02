@@ -27,9 +27,9 @@ class FoglalasList extends React.Component{
     render() {
         return(
             <div>
-                {this.state.foglalasok.map(({Foglalas_Id, cellaSzam, erkezes, tavozas, vezeteknev, keresztnev, telefonszam, tipus, aram}, index)=>{
+                {this.state.foglalasok.map(({foglalasId, cellaSzam, erkezes, tavozas, vezeteknev, keresztnev, telefonszam, tipus, aram}, index)=>{
                     return(
-                        <FoglalasListItem key={index} Foglalas_Id={Foglalas_Id} cellaSzam={cellaSzam} erkezes={erkezes}
+                        <FoglalasListItem key={index} foglalasId={foglalasId} cellaSzam={cellaSzam} erkezes={erkezes}
                         tavozas={tavozas} vezeteknev={vezeteknev} keresztnev={keresztnev} telefonszam={telefonszam}
                         tipus={tipus} aram={aram}/>
                     );

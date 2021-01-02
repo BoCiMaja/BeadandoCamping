@@ -6,14 +6,14 @@ class FoglalasRecordingForm extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            Foglalas_Id : 0,
-            cellaszam : 0,
+            foglalasId : null,
+            cellaszam : null,
             erkezes : null,
             tavozas : null,
             vezeteknev : "",
             keresztnev : "",
             telefonszam : "",
-            tipus : 0,
+            tipus : null,
             aram : false
         };
         this.formOnChange = this.formOnChange.bind(this);
@@ -28,8 +28,8 @@ class FoglalasRecordingForm extends React.Component{
         return(
             <div>
                 <ErrorMessageWell/>
-                <label htmlFor={"Foglalas_Id"} >Foglalas ID</label>
-                <input type={"number"} id={"Foglalas_Id"} name={"Foglalas_Id"} value={this.state.Foglalas_Id} onChange={this.formOnChange}/>
+                <label htmlFor={"foglalasId"} >Foglalas ID</label>
+                <input type={"number"} id={"foglalasId"} name={"foglalasId"} value={this.state.foglalasId} onChange={this.formOnChange}/>
                 <br/>
                 <label htmlFor={"cellaszam"}>Cellaszám</label>
                 <input type={"number"} id={"cellaszam"} name={"cellaszam"} value={this.state.cellaszam} onChange={this.formOnChange}/>
