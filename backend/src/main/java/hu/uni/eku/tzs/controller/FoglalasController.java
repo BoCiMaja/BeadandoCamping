@@ -34,7 +34,7 @@ public class FoglalasController {
     public Collection<FoglalasDto> query(){
             return  service.readAll().stream().map(foglalas ->
                     FoglalasDto.builder()
-                            .Foglalas_Id(foglalas.getFoglalas_Id())
+                            .FoglalasId(foglalas.getFoglalasId())
                             .cellaSzam(foglalas.getCellaSzam())
                             .erkezes(foglalas.getErkezes())
                             .tavozas(foglalas.getTavozas())
