@@ -27,7 +27,7 @@ public class BillingDaoImpl implements BillingDao {
     }
 
     @Override
-    public void update(int billId, Bill update) {
+    public void update(Integer billId, Bill update) {
         hu.uni.eku.tzs.dao.entity.Bill temp = repository.findByBillId(billId);
         temp.setBillId(update.getBillId());
         temp.setArrive(update.getArrive());
@@ -40,7 +40,7 @@ public class BillingDaoImpl implements BillingDao {
     }
 
     @Override
-    public void delete(int billId) {
+    public void delete(Integer billId) {
         hu.uni.eku.tzs.dao.entity.Bill temp = repository.findByBillId(billId);
         if (temp != null)
             repository.delete(temp);

@@ -9,7 +9,7 @@ import java.util.UUID;
 @Builder
 public class CellaDto
 {
-    private int cellaId;
+    private Integer cellaId;
     private boolean allapot;
 
 }

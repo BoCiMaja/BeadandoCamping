@@ -31,7 +31,7 @@ public class BillingServiceImpl implements BillingService {
     }
 
     @Override
-    public void delete(int billId) throws BillNotFoundException {
+    public void delete(Integer billId) throws BillNotFoundException {
         dao.delete(billId);
     }
 

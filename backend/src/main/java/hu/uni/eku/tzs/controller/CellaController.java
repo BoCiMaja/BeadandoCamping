@@ -60,7 +60,7 @@ public class CellaController {
 
     @DeleteMapping(value = {"/{cellaId}"})
     @ApiOperation(value = "Delete a Cella")
-    public void delete(@PathVariable int cellaId)
+    public void delete(@PathVariable Integer cellaId)
     {
         try {
             service.delete(cellaId);

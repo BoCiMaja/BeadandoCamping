@@ -17,9 +17,9 @@ import java.time.LocalDate;
 public class Bill {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int Id;
+    private Integer Id;
     @Column
-    private int billId;
+    private Integer billId;
     @Column
     private LocalDate arrive;
     @Column
@@ -31,5 +31,5 @@ public class Bill {
     @Column
     private short numberOfDays;
     @Column
-    private int totalAmount;
+    private Integer totalAmount;
 }

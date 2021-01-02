@@ -11,6 +11,6 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Cella
 {
-    private int cellaId;
+    private Integer cellaId;
     private boolean allapot;
 }

@@ -14,13 +14,13 @@ import java.util.UUID;
 @AllArgsConstructor
 public class FoglalasRecordRequestDto {
 
-    private int Foglalas_Id;
-    private int cellaSzam;
+    private Integer Foglalas_Id;
+    private Integer cellaSzam;
     private Date erkezes;
     private Date tavozas;
     private String vezeteknev;
     private String keresztnev;
     private String telefonszam;
-    private int tipus;
+    private Integer tipus;
     private boolean aram;
 }

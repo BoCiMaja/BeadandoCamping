@@ -17,9 +17,9 @@ public class Cella {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int Id;
+    private Integer Id;
     @Column
-    private int cellaId;
+    private Integer cellaId;
     @Column
     private boolean allapot;
 }

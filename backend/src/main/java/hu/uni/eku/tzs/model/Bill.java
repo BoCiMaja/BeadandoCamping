@@ -12,12 +12,12 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Bill {
-    private int billId;
+    private Integer billId;
     private LocalDate arrive;
     private LocalDate leave;
     private String firstName;
     private String surName;
     private short numberOfDays;
-    private int totalAmount;
+    private Integer totalAmount;
 }
 

@@ -11,9 +11,9 @@ public interface CellaService {
 
     void record(Cella cella)throws CellaAlreadyExistsException;
 
-    Collection<Cella>readAll();
-
     /*void update(int cellaId, Cella updatedCella)throws CellaNotFoundException;*/
 
-    void  delete(int cellaId)throws CellaNotFoundException;
+    void  delete(Integer cellaId)throws CellaNotFoundException;
+
+    Collection<Cella>readAll();
 }

@@ -28,7 +28,7 @@ public class FoglalasDaoImpl implements FoglalasDao {
     }
 
     @Override
-    public void update(int Foglalas_Id, Foglalas updated) {
+    public void update(Integer Foglalas_Id, Foglalas updated) {
         hu.uni.eku.tzs.dao.entity.Foglalas temp = repository.findByFoglalas_Id(Foglalas_Id);
         temp.setFoglalas_Id(updated.getFoglalas_Id());
         temp.setCellaSzam(updated.getCellaSzam());
@@ -43,7 +43,7 @@ public class FoglalasDaoImpl implements FoglalasDao {
     }
 
     @Override
-    public void delete(int Foglalas_Id) {
+    public void delete(Integer Foglalas_Id) {
         hu.uni.eku.tzs.dao.entity.Foglalas temp = repository.findByFoglalas_Id(Foglalas_Id);
         if(temp != null)
             repository.delete(temp);

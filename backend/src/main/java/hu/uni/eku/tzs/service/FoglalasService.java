@@ -12,9 +12,9 @@ public interface FoglalasService {
 
     void record(Foglalas foglalas)throws FoglalasAlreadyExistsExeptions;
 
+    //void update(Integer Foglalas_Id, Foglalas updatedFoglalas)throws FoglalasNotFoundException;
+
+    void  delete(Integer Foglalas_Id)throws FoglalasNotFoundException;
+
     Collection<Foglalas>readAll();
-
-    void update(int Foglalas_Id, Foglalas updatedFoglalas)throws FoglalasNotFoundException;
-
-    void  delete(int Foglalas_Id)throws FoglalasNotFoundException;
 }

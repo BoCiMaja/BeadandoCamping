@@ -36,12 +36,12 @@ public class FoglalasServiceImpl implements FoglalasService {
     }
 
     @Override
-    public void update(int Foglalas_Id, Foglalas updatedFoglalas)throws FoglalasNotFoundException{
+    public void update(Integer Foglalas_Id, Foglalas updatedFoglalas)throws FoglalasNotFoundException{
         dao.update(Foglalas_Id, updatedFoglalas);
     }
 
     @Override
-    public  void delete(int Foglalas_Id)throws  FoglalasNotFoundException{
+    public  void delete(Integer Foglalas_Id)throws  FoglalasNotFoundException{
         dao.delete(Foglalas_Id);
     }
 }

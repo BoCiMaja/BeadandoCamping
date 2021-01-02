@@ -12,6 +12,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CellaRecordRequestDto {
-    private int cellaId;
+    private Integer cellaId;
     private boolean allapot;
 }

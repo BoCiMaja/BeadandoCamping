@@ -11,7 +11,7 @@ public interface CellaDao {
 
     Collection<Cella> readAll();
 
-    void update(int celladId, Cella updated);
+    void update(Integer celladId, Cella updated);
 
-    void delete(int cellaId);
+    void delete(Integer cellaId);
 }

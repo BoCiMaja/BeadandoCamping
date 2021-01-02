@@ -76,7 +76,7 @@ public class FoglalasController {
 
     @DeleteMapping(value = {"/{Foglalas_Id}"})
     @ApiOperation(value = "Delete a Foglalas")
-    public void delete(@PathVariable int Foglalas_Id)
+    public void delete(@PathVariable Integer Foglalas_Id)
     {
         try {
             service.delete(Foglalas_Id);

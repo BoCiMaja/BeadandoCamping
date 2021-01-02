@@ -9,7 +9,7 @@ import java.util.Collection;
 public interface BillingService {
     void record(Bill bill) throws BillAlreadyExistsException;
 
-    void delete(int billId) throws BillNotFoundException;
+    void delete(Integer billId) throws BillNotFoundException;
 
     Collection<Bill> readAll();
 }

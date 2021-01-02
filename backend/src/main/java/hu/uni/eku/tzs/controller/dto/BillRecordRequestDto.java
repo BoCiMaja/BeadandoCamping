@@ -13,11 +13,11 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BillRecordRequestDto {
-    private int billId;
+    private Integer billId;
     private LocalDate arrive;
     private LocalDate leave;
     private String firstName;
     private String surName;
     private short numberOfDays;
-    private int totalAmount;
+    private Integer totalAmount;
 }

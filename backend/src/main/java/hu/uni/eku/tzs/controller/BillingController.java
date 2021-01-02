@@ -72,7 +72,7 @@ public class BillingController {
 
     @DeleteMapping(value = {"/{billId}"})
     @ApiOperation(value = "Delete a Guest")
-    public void delete(@PathVariable int billId) {
+    public void delete(@PathVariable Integer billId) {
         try {
             service.delete(billId);
         } catch (BillNotFoundException e) {

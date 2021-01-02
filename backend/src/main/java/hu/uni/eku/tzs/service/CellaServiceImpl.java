@@ -42,7 +42,7 @@ public class CellaServiceImpl implements CellaService {
     }*/
 
     @Override
-    public void delete(int cellaId)throws CellaNotFoundException{
+    public void delete(Integer cellaId)throws CellaNotFoundException{
         dao.delete(cellaId);
     }
 }

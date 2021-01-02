@@ -19,11 +19,11 @@ public class Foglalas {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int Id;
+    private Integer Id;
     @Column
-    private int Foglalas_Id;
+    private Integer Foglalas_Id;
     @Column
-    private int cellaSzam;
+    private Integer cellaSzam;
     @Column
     private Date erkezes;
     @Column
@@ -35,7 +35,7 @@ public class Foglalas {
     @Column
     private String telefonszam;
     @Column
-    private int tipus;
+    private Integer tipus;
     @Column
     private boolean aram;
 
