@@ -74,7 +74,7 @@ public class FoglalasController {
         }
     }*/
 
-    @DeleteMapping(value = {"/{FoglalasId}"})
+    @DeleteMapping(value = {"/{foglalasId}"})
     @ApiOperation(value = "Delete a Foglalas")
     public void delete(@PathVariable Integer foglalasId)
     {
