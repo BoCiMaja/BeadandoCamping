@@ -32,17 +32,17 @@ public class FoglalasController {
     @ResponseBody
     @ApiOperation(value = "Query Foglalas")
     public Collection<FoglalasDto> query(){
-            return  service.readAll().stream().map(foglalas ->
+            return  service.readAll().stream().map(model ->
                     FoglalasDto.builder()
-                            .FoglalasId(foglalas.getFoglalasId())
-                            .cellaSzam(foglalas.getCellaSzam())
-                            .erkezes(foglalas.getErkezes())
-                            .tavozas(foglalas.getTavozas())
-                            .vezeteknev(foglalas.getVezeteknev())
-                            .keresztnev(foglalas.getKeresztnev())
-                            .telefonszam(foglalas.getTelefonszam())
-                            .tipus(foglalas.getTipus())
-                            .aram(foglalas.isAram())
+                            .FoglalasId(model.getFoglalasId())
+                            .cellaSzam(model.getCellaSzam())
+                            .erkezes(model.getErkezes())
+                            .tavozas(model.getTavozas())
+                            .vezeteknev(model.getVezeteknev())
+                            .keresztnev(model.getKeresztnev())
+                            .telefonszam(model.getTelefonszam())
+                            .tipus(model.getTipus())
+                            .aram(model.isAram())
                             .build()
             ).collect(Collectors.toList());
     }
