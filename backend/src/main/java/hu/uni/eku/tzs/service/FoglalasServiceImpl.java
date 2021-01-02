@@ -35,10 +35,10 @@ public class FoglalasServiceImpl implements FoglalasService {
         return dao.readAll();
     }
 
-    @Override
+    /*@Override
     public void update(Integer Foglalas_Id, Foglalas updatedFoglalas)throws FoglalasNotFoundException{
         dao.update(Foglalas_Id, updatedFoglalas);
-    }
+    }*/
 
     @Override
     public  void delete(Integer Foglalas_Id)throws  FoglalasNotFoundException{

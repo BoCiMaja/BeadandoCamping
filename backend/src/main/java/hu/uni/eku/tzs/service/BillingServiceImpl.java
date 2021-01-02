@@ -31,12 +31,12 @@ public class BillingServiceImpl implements BillingService {
     }
 
     @Override
-    public void delete(Integer billId) throws BillNotFoundException {
-        dao.delete(billId);
+    public Collection<Bill> readAll() {
+        return dao.readAll();
     }
 
     @Override
-    public Collection<Bill> readAll() {
-        return dao.readAll();
+    public void delete(Integer billId) throws BillNotFoundException {
+        dao.delete(billId);
     }
 }
