@@ -30,7 +30,7 @@ export const recordFoglalas = ({foglalasId, cellaSzam, erkezes, tavozas, vezetek
 
 export const fetchFoglalasok = () =>{
 
-    axios.get('/foglalasok/').then((resp)=>{
+    axios.get('/foglalas/').then((resp)=>{
         dispatcher.dispatch({
             action : actionConstants.refresh,
             payload: resp.data
@@ -39,7 +39,7 @@ export const fetchFoglalasok = () =>{
 }
 
 export const deleteFoglalas = ({foglalasId}) =>{
-    axios.delete(`/guest/${foglalasId}`)
+    axios.delete(`/foglalas/${foglalasId}`)
         .then(() => {
 
             dispatcher.dispatch({action : actionConstants.clearError});

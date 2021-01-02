@@ -1,7 +1,10 @@
 import React from 'react';
 import './App.scss';
+import './App.css';
 import FoglalasRecordingForm from "./component/FoglalasRecordingForm";
 import FoglalasList from "./component/FoglalasList";
+import BillingRecordingForm from "./component/BillingRecordingForm";
+import BillingList from "./component/BillingList";
 
 function App() {
   return (
