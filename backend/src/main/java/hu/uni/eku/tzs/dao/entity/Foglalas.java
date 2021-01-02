@@ -20,7 +20,7 @@ public class Foglalas {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
     @Column
-    private Integer FoglalasId;
+    private Integer foglalasId;
     @Column
     private Integer cellaSzam;
     @Column

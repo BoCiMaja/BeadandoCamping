@@ -28,8 +28,8 @@ public class FoglalasDaoImpl implements FoglalasDao {
     }
 
     @Override
-    public void update(Integer FoglalasId, Foglalas updated) {
-        hu.uni.eku.tzs.dao.entity.Foglalas temp = repository.findByFoglalasId(FoglalasId);
+    public void update(Integer foglalasId, Foglalas updated) {
+        hu.uni.eku.tzs.dao.entity.Foglalas temp = repository.findByFoglalasId(foglalasId);
         temp.setFoglalasId(updated.getFoglalasId());
         temp.setCellaSzam(updated.getCellaSzam());
         temp.setErkezes(updated.getErkezes());
@@ -43,8 +43,8 @@ public class FoglalasDaoImpl implements FoglalasDao {
     }
 
     @Override
-    public void delete(Integer FoglalasId) {
-        hu.uni.eku.tzs.dao.entity.Foglalas temp = repository.findByFoglalasId(FoglalasId);
+    public void delete(Integer foglalasId) {
+        hu.uni.eku.tzs.dao.entity.Foglalas temp = repository.findByFoglalasId(foglalasId);
         if(temp != null)
             repository.delete(temp);
     }
@@ -68,7 +68,7 @@ public class FoglalasDaoImpl implements FoglalasDao {
 
         private static hu.uni.eku.tzs.dao.entity.Foglalas model2entity(Foglalas model){
             return hu.uni.eku.tzs.dao.entity.Foglalas.builder()
-                    .FoglalasId(model.getFoglalasId())
+                    .foglalasId(model.getFoglalasId())
                     .cellaSzam(model.getCellaSzam())
                     .erkezes(model.getErkezes())
                     .tavozas(model.getTavozas())

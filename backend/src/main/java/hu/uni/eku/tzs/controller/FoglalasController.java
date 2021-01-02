@@ -34,7 +34,7 @@ public class FoglalasController {
     public Collection<FoglalasDto> query(){
             return  service.readAll().stream().map(model ->
                     FoglalasDto.builder()
-                            .FoglalasId(model.getFoglalasId())
+                            .foglalasId(model.getFoglalasId())
                             .cellaSzam(model.getCellaSzam())
                             .erkezes(model.getErkezes())
                             .tavozas(model.getTavozas())
@@ -76,10 +76,10 @@ public class FoglalasController {
 
     @DeleteMapping(value = {"/{FoglalasId}"})
     @ApiOperation(value = "Delete a Foglalas")
-    public void delete(@PathVariable Integer FoglalasId)
+    public void delete(@PathVariable Integer foglalasId)
     {
         try {
-            service.delete(FoglalasId);
+            service.delete(foglalasId);
         }catch (FoglalasNotFoundException e){
             throw  new ResponseStatusException(HttpStatus.CONFLICT, e.getMessage());
         }

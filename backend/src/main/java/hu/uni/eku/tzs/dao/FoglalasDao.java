@@ -11,7 +11,7 @@ public interface FoglalasDao {
 
     Collection<Foglalas> readAll();
 
-    void update(Integer Foglalas, Foglalas updated);
+    void update(Integer foglalasId, Foglalas updated);
 
-    void delete(Integer Foglalas);
+    void delete(Integer foglalasId);
 }

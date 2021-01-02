@@ -12,7 +12,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Foglalas
 {
-    private Integer FoglalasId;
+    private Integer foglalasId;
     private Integer cellaSzam;
     private LocalDateTime erkezes;
     private LocalDateTime tavozas;
