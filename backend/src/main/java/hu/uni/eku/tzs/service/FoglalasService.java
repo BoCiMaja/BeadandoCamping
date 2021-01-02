@@ -14,7 +14,7 @@ public interface FoglalasService {
 
     //void update(Integer Foglalas_Id, Foglalas updatedFoglalas)throws FoglalasNotFoundException;
 
-    void  delete(Integer Foglalas_Id)throws FoglalasNotFoundException;
+    void  delete(Integer FoglalasId)throws FoglalasNotFoundException;
 
     Collection<Foglalas>readAll();
 }

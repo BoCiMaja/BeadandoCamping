@@ -27,15 +27,15 @@ public class BillingDaoImpl implements BillingDao {
     }
 
     @Override
-    public void update(Integer billId, Bill update) {
+    public void update(Integer billId, Bill updated) {
         hu.uni.eku.tzs.dao.entity.Bill temp = repository.findByBillId(billId);
-        temp.setBillId(update.getBillId());
-        temp.setArrive(update.getArrive());
-        temp.setLeave(update.getLeave());
-        temp.setFirstName(update.getFirstName());
-        temp.setSurName(update.getSurName());
-        temp.setNumberOfDays(update.getNumberOfDays());
-        temp.setTotalAmount(update.getTotalAmount());
+        temp.setBillId(updated.getBillId());
+        temp.setArrive(updated.getArrive());
+        temp.setLeave(updated.getLeave());
+        temp.setFirstName(updated.getFirstName());
+        temp.setSurName(updated.getSurName());
+        temp.setNumberOfDays(updated.getNumberOfDays());
+        temp.setTotalAmount(updated.getTotalAmount());
         repository.save(temp);
     }
 

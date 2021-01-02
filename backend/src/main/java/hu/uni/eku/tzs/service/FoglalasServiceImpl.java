@@ -22,7 +22,7 @@ public class FoglalasServiceImpl implements FoglalasService {
         final boolean alreadyExists = dao.readAll()
                 .stream()
                 .anyMatch(foglal ->
-                        foglal.getFoglalas_Id() == foglalas.getFoglalas_Id());
+                        foglal.getFoglalasId() == foglalas.getFoglalasId());
         if (alreadyExists){
             throw new FoglalasAlreadyExistsExeptions(String.format("Foglalás (%s) már van!",foglalas.toString()));
         }
@@ -41,7 +41,7 @@ public class FoglalasServiceImpl implements FoglalasService {
     }*/
 
     @Override
-    public  void delete(Integer Foglalas_Id)throws  FoglalasNotFoundException{
-        dao.delete(Foglalas_Id);
+    public  void delete(Integer FoglalasId)throws  FoglalasNotFoundException{
+        dao.delete(FoglalasId);
     }
 }

@@ -5,7 +5,6 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.UUID;
 
 @Entity
@@ -21,13 +20,13 @@ public class Foglalas {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
     @Column
-    private Integer Foglalas_Id;
+    private Integer FoglalasId;
     @Column
     private Integer cellaSzam;
     @Column
-    private Date erkezes;
+    private LocalDateTime erkezes;
     @Column
-    private Date tavozas;
+    private LocalDateTime tavozas;
     @Column
     private String vezeteknev;
     @Column

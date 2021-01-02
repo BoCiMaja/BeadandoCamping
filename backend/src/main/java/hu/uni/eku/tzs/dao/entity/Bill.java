@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import lombok.*;
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Builder
@@ -21,9 +21,9 @@ public class Bill {
     @Column
     private Integer billId;
     @Column
-    private LocalDate arrive;
+    private LocalDateTime arrive;
     @Column
-    private LocalDate leave;
+    private LocalDateTime leave;
     @Column
     private String firstName;
     @Column

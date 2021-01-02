@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -14,8 +14,8 @@ import java.util.Date;
 @AllArgsConstructor
 public class BillRecordRequestDto {
     private Integer billId;
-    private LocalDate arrive;
-    private LocalDate leave;
+    private LocalDateTime arrive;
+    private LocalDateTime leave;
     private String firstName;
     private String surName;
     private Integer numberOfDays;

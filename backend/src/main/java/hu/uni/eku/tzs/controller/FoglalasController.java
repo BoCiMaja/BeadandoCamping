@@ -53,7 +53,7 @@ public class FoglalasController {
                     FoglalasRecordRequestDto request
     ){
         try {
-            service.record(new Foglalas(request.getFoglalas_Id(),request.getCellaSzam(),request.getErkezes(),
+            service.record(new Foglalas(request.getFoglalasId(),request.getCellaSzam(),request.getErkezes(),
                     request.getTavozas(),request.getVezeteknev(),request.getKeresztnev(), request.getTelefonszam(),
                     request.getTipus(), request.isAram()));
         }catch (FoglalasAlreadyExistsExeptions e){
@@ -74,12 +74,12 @@ public class FoglalasController {
         }
     }*/
 
-    @DeleteMapping(value = {"/{Foglalas_Id}"})
+    @DeleteMapping(value = {"/{FoglalasId}"})
     @ApiOperation(value = "Delete a Foglalas")
-    public void delete(@PathVariable Integer Foglalas_Id)
+    public void delete(@PathVariable Integer FoglalasId)
     {
         try {
-            service.delete(Foglalas_Id);
+            service.delete(FoglalasId);
         }catch (FoglalasNotFoundException e){
             throw  new ResponseStatusException(HttpStatus.CONFLICT, e.getMessage());
         }
