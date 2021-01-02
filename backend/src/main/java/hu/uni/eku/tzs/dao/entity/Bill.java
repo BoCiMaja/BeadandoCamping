@@ -29,7 +29,7 @@ public class Bill {
     @Column
     private String surName;
     @Column
-    private short numberOfDays;
+    private Integer numberOfDays;
     @Column
     private Integer totalAmount;
 }

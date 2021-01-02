@@ -17,7 +17,7 @@ public class Bill {
     private LocalDate leave;
     private String firstName;
     private String surName;
-    private short numberOfDays;
+    private Integer numberOfDays;
     private Integer totalAmount;
 }
 
