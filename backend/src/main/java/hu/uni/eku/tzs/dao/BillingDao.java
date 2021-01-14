@@ -1,9 +1,12 @@
 package hu.uni.eku.tzs.dao;
 
 import hu.uni.eku.tzs.model.Bill;
+import hu.uni.eku.tzs.model.Foglalas;
+
 import java.util.Collection;
 
 public interface BillingDao {
+
     void create(Bill bill);
 
     Collection<Bill> readAll();
