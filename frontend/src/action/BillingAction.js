@@ -3,7 +3,7 @@ import dispatcher from '../dispatcher/Dispatcher';
 import * as actionConstants from '../dispatcher/BillingActionConstants'
 
 export const recordBill = ({ billId, arrive, leave, firstName, surName, numberOfDays, totalAmount}) =>{
-    axios.post('/Bill/record',
+    axios.post('/bill/record',
         {
             billId: billId,
             arrive : arrive,
@@ -28,7 +28,7 @@ export const recordBill = ({ billId, arrive, leave, firstName, surName, numberOf
 
 export const fetchBills = () =>{
 
-    axios.get('/Bill/').then((resp)=>{
+    axios.get('/bill/').then((resp)=>{
         dispatcher.dispatch({
             action : actionConstants.refresh,
             payload: resp.data
@@ -37,7 +37,7 @@ export const fetchBills = () =>{
 }
 
 export const deleteBill = ({billId}) =>{
-    axios.delete(`/Bill/${billId}`)
+    axios.delete(`/bill/${billId}`)
         .then(() => {
 
             dispatcher.dispatch({action : actionConstants.clearError});

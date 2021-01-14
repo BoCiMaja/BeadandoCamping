@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class Bill {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer Id;
+    private int Id;
     @Column
     private Integer billId;
     @Column

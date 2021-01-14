@@ -21,10 +21,9 @@ public class BillingServiceImpl implements BillingService {
     public void record(Bill bill) throws BillAlreadyExistsException {
         final boolean isAlreadyRecorded = dao.readAll()
                 .stream()
-                .anyMatch(t ->
-                        t == bill);
+                .anyMatch(szamla ->
+                        szamla.getBillId() == bill.getBillId());
         if (isAlreadyRecorded) {
-            log.info("The bill {} is already recorded!", bill);
             throw new BillAlreadyExistsException(String.format("Bill {%s} already exists!", bill.toString()));
         }
         dao.create(bill);
